@@ -10,29 +10,38 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-public class TestBird {
-	static Bird bird;
+public class TestDuck {
+	static Duck duck;
 	@BeforeAll
 	public static void init() {
-		bird = new Chicken();
+		duck = new Duck();
 	}
 	
 	@Test
-	public void testSingByCheckInstance() {
-		assertTrue(bird instanceof Singable);
-	}
-	
-	@Test
-	public void testSingByCheckOutput() {
+	public void testSoundByCheckOutput() {
 		ByteArrayOutputStream output = new ByteArrayOutputStream();
 		PrintStream ps = new PrintStream(output);
 		System.setOut(ps);
-		bird.sing();
-		assertEquals("I am singing", output.toString().trim());
+		duck.sound();
+		assertEquals("Quack, quack", output.toString().trim());
+	}
+	
+	@Test
+	public void testSwimByCheckInstance() {
+		assertTrue(duck instanceof Swimmable);
+	}
+	
+	@Test
+	public void testSwimByCheckOutput() {
+		ByteArrayOutputStream output = new ByteArrayOutputStream();
+		PrintStream ps = new PrintStream(output);
+		System.setOut(ps);
+		duck.swim();
+		assertEquals("I am swimming", output.toString().trim());
 	}
 	
 	@AfterAll
 	public static void destroy() {
-		bird = null;
+		duck = null;
 	}
 }

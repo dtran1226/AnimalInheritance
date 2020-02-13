@@ -1,15 +1,11 @@
 package com.example.animal;
 
-public class Bird extends Animal implements Walkable, Flyable, Singable{
+public abstract class Bird extends Animal implements Walkable, Singable{
 
-	@Override
-	void move() {
-		fly();
-	}
+	abstract void move();
 
 	@Override
 	void sound() {
 		sing();
 	}
-
 }
