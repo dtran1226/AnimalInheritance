@@ -1,14 +1,9 @@
 package com.example.animal;
 
-public class Butterfly extends Animal implements Flyable{
+public class Butterfly extends Caterpillar implements Flyable{
 
 	@Override
 	void move() {
 		fly();
-	}
-
-	@Override
-	void sound() {
-		System.out.println("I cant make a sound");
 	}
 }
